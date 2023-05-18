@@ -1,7 +1,7 @@
 # Casting Agency API
 
 ## Capstone Project for Udacity's Full Stack Developer Nanodegree
-Heroku Link: https://agency-service-xw96.onrender.com
+Render Link: https://agency-service-xw96.onrender.com
 
 While running locally: http://localhost:5000
 
