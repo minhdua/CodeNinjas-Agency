@@ -754,18 +754,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"// Parse the response body as JSON\r",
-							"var responseBody = pm.response.json();\r",
-							"\r",
-							"// Extract the tokens from the response body\r",
-							"var adminToken = responseBody.admin_token;\r",
-							"var managerToken = responseBody.manager_token;\r",
-							"var userToken = responseBody.user_token;\r",
-							"\r",
-							"// Set the collection variables\r",
-							"pm.collectionVariables.set(\"adminToken\", adminToken);\r",
-							"pm.collectionVariables.set(\"managerToken\", managerToken);\r",
-							"pm.collectionVariables.set(\"userToken\", userToken);\r",
 							""
 						],
 						"type": "text/javascript"
@@ -811,7 +799,7 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "http://localhost:5000",
+			"value": "https://agency-service-xw96.onrender.com",
 			"type": "default"
 		},
 		{

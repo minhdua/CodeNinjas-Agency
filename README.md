@@ -1,7 +1,7 @@
 # Casting Agency API
 
 ## Capstone Project for Udacity's Full Stack Developer Nanodegree
-Heroku Link: https://ry-fsnd-capstone.herokuapp.com
+Heroku Link: https://agency-service-xw96.onrender.com
 
 While running locally: http://localhost:5000
 
@@ -63,7 +63,7 @@ Using the `--reload` flag will detect file changes and restart the server automa
 ## API Reference
 
 ## Getting Started
-Base URL: This application can be run locally. The hosted version is at `https://ry-fsnd-capstone.herokuapp.com`.
+Base URL: This application can be run locally. The hosted version is at `https://agency-service-xw96.onrender.com`.
 
 Authentication: This application requires authentication to perform various actions. All the endpoints require
 various permissions, except the root (or health) endpoint, that are passed via the `Bearer` token.
@@ -110,7 +110,7 @@ The API will return the following errors based on how the request fails:
    - is a public endpoint, requires no authentication
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com`
+   - `https://agency-service-xw96.onrender.com`
 
 <details>
 <summary>Sample Response</summary>
@@ -129,7 +129,7 @@ The API will return the following errors based on how the request fails:
    - requires `get:actors` permission
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors`
+   - `https://agency-service-xw96.onrender.com/actors`
 
 <details>
 <summary>Sample Response</summary>
@@ -166,7 +166,7 @@ The API will return the following errors based on how the request fails:
    - requires `get:actors-info` permission
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors/1`
+   - `https://agency-service-xw96.onrender.com/actors/1`
 
 <details>
 <summary>Sample Response</summary>
@@ -198,7 +198,7 @@ The API will return the following errors based on how the request fails:
    - date_of_birth: date, required
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors`
+   - `https://agency-service-xw96.onrender.com/actors`
    - Request Body
      ```
         {
@@ -231,7 +231,7 @@ The API will return the following errors based on how the request fails:
    - date_of_birth: date, optional
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors/5`
+   - `https://agency-service-xw96.onrender.com/actors/5`
    - Request Body
      ```
        {
@@ -262,7 +262,7 @@ The API will return the following errors based on how the request fails:
    - will also delete the mapping to the movie but will not delete the movie from the database
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors/5`
+   - `https://agency-service-xw96.onrender.com/actors/5`
 
 <details>
 <summary>Sample Response</summary>
@@ -282,7 +282,7 @@ The API will return the following errors based on how the request fails:
    - requires `get:movies` permission
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/movies`
+   - `https://agency-service-xw96.onrender.com/movies`
 
 <details>
 <summary>Sample Response</summary>
@@ -313,7 +313,7 @@ The API will return the following errors based on how the request fails:
    - requires `get:movies-info` permission
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/movies/1`
+   - `https://agency-service-xw96.onrender.com/movies/1`
 
 <details>
 <summary>Sample Response</summary>
@@ -353,7 +353,7 @@ The API will return the following errors based on how the request fails:
    - If not, the request will fail with code 422.
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/actors`
+   - `https://agency-service-xw96.onrender.com/actors`
    - Request Body
      ```
         {
@@ -394,7 +394,7 @@ The API will return the following errors based on how the request fails:
    - So, if you want to append new actors to a movie, pass the existing actors also in the request.
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/movies/3`
+   - `https://agency-service-xw96.onrender.com/movies/3`
    - Request Body
      ```
        {
@@ -426,7 +426,7 @@ The API will return the following errors based on how the request fails:
    - will not affect the actors present in the database
  
  - Sample Request
-   - `https://ry-fsnd-capstone.herokuapp.com/movies/3`
+   - `https://agency-service-xw96.onrender.com/movies/3`
 
 <details>
 <summary>Sample Response</summary>
