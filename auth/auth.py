@@ -11,7 +11,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
 auth0_domain = os.environ.get('AUTH0_DOMAIN')
-algorithms = os.environ.get('ALGORITHMS')
+algorithms = os.environ.get('ALGORITHMS', '')
 algorithms_list = algorithms.split(';')
 api_audience = os.environ.get('API_AUDIENCE')
 
