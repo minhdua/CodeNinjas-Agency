@@ -1,8 +1,8 @@
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from database.models import db_drop_and_create_all, setup_db, Actor, Movie
-from auth.auth import AuthError, generate_admin_token, generate_manager_token, generate_user_token, requires_auth
+from database.models import ActorInMovie, db_drop_and_create_all, setup_db, Actor, Movie
+from auth.auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
@@ -26,23 +26,13 @@ def create_app(test_config=None):
 
     @app.route('/health')
     def health():
-        user_token = generate_user_token()
-        manager_token = generate_manager_token()
-        admin_token = generate_admin_token()
-
-        tokens = {
-            'user_token': user_token,
-            'manager_token': manager_token,
-            'admin_token': admin_token
-        }
-
-        return jsonify(tokens), 200
+        return jsonify({"health": "Running!!"}), 200
 
     @app.route('/actors')
     @requires_auth("get:actors")
     def get_actors(payload):
         actors_query = Actor.query.order_by(Actor.id).all()
-        actors = [actor.short() for actor in actors_query]
+        actors = [actor.short_info for actor in actors_query]
 
         return jsonify({
             "success": True,
@@ -56,7 +46,7 @@ def create_app(test_config=None):
 
         return jsonify({
             "success": True,
-            "actor": actor.full_info()
+            "actor": actor.full_info
         }), 200
 
     @app.route('/actors', methods=['POST'])
@@ -78,10 +68,11 @@ def create_app(test_config=None):
 
             new_actor = Actor(request_body['name'], full_name,
                               request_body['date_of_birth'])
-            new_actor.insert()
+            new_actor.save()
 
             return jsonify({
                 "success": True,
+                "actor_info": new_actor.full_info,
                 "created_actor_id": new_actor.id
             }), 201
 
@@ -123,13 +114,13 @@ def create_app(test_config=None):
 
             return jsonify({
                 "success": True,
-                "actor_info": actor.long()
+                "actor_info": actor.long_info
             }), 200
 
         except (TypeError, ValueError, KeyError):
             abort(422)
 
-        except Exception:
+        except Exception as ex:
             abort(500)
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
@@ -152,7 +143,7 @@ def create_app(test_config=None):
     @requires_auth("get:movies")
     def get_movies(payload):
         movies_query = Movie.query.order_by(Movie.id).all()
-        movies = [movie.short() for movie in movies_query]
+        movies = [movie.short_info for movie in movies_query]
 
         return jsonify({
             "success": True,
@@ -166,7 +157,7 @@ def create_app(test_config=None):
 
         return jsonify({
             "success": True,
-            "movie": movie.full_info()
+            "movie": movie.full_info
         }), 200
 
     @app.route('/movies', methods=['POST'])
@@ -201,13 +192,20 @@ def create_app(test_config=None):
 
             if len(request_body["cast"]) == len(actors):
                 new_movie.cast = actors
-                new_movie.insert()
+                new_movie.save()
+
+                # save all roles
+                for actor in actors:
+                    role = ActorInMovie(new_movie.id, actor.id)
+                    role.save()
+
             else:
-                raise ValueError
+                raise ValueError("Error has some actors not found")
 
             return jsonify({
                 "success": True,
-                "created_movie_id": new_movie.id
+                "created_movie_id": new_movie.id,
+                "movie": new_movie.full_info
             }), 201
 
         except (TypeError, KeyError, ValueError):
@@ -267,7 +265,7 @@ def create_app(test_config=None):
 
             return jsonify({
                 "success": True,
-                "movie_info": movie.long()
+                "movie_info": movie.long_info
             }), 200
 
         except (TypeError, ValueError, KeyError):

@@ -1,10 +1,14 @@
 import os
 import unittest
 import json
+from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 
 from app import create_app
 from database.models import setup_db, Actor, Movie
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class CastingAgencyTestCase(unittest.TestCase):
@@ -12,12 +16,11 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def setUp(self):
         """Define test variables and initialize app."""
-        self.user_token = os.environ['user_token']
-        self.manager_token = os.environ['manager_token']
-        self.admin_token = os.environ['admin_token']
+        self.user_token = os.environ.get('USER_TOKEN')
+        self.manager_token = os.environ.get('MANAGER_TOKEN')
+        self.admin_token = os.environ.get('ADMIN_TOKEN')
         self.app = create_app()
         self.client = self.app.test_client
-        setup_db(self.app)
 
         self.VALID_NEW_ACTOR = {
             "name": "Ana de Armas",
@@ -40,13 +43,13 @@ class CastingAgencyTestCase(unittest.TestCase):
             "duration": 137,
             "release_year": 2016,
             "imdb_rating": 6,
-            "cast": ["Margot Robbie"]
+            "cast": ["Tom Hanks", "Meryl Streep"]
         }
 
         self.INVALID_NEW_MOVIE = {
             "title": "Knives Out",
             "imdb_rating": 7.9,
-            "cast": ["Ana de Armas"]
+            "cast": ["Leonardo DiCaprio"]
         }
 
         self.VALID_UPDATE_MOVIE = {
@@ -55,20 +58,13 @@ class CastingAgencyTestCase(unittest.TestCase):
 
         self.INVALID_UPDATE_MOVIE = {}
 
-        # binds the app to the current context
-        with self.app.app_context():
-            self.db = SQLAlchemy()
-            self.db.init_app(self.app)
-            # create all tables
-            self.db.create_all()
-
     def tearDown(self):
         """Executed after reach test"""
         pass
 
     def test_health(self):
         """Test for GET / (health endpoint)"""
-        res = self.client().get('/')
+        res = self.client().get('/health')
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)

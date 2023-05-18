@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b128975b-d9e8-46a9-b364-8736353dd9c8",
-		"name": "FSND-Capstone Heroku",
+		"name": "FSND-Casting-Agency",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12833321"
 	},
@@ -15,12 +15,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://ry-fsnd-capstone.herokuapp.com/actors",
-							"protocol": "https",
+							"raw": "{{host}}/actors",
 							"host": [
-								"ry-fsnd-capstone",
-								"herokuapp",
-								"com"
+								"{{host}}"
 							],
 							"path": [
 								"actors"
@@ -35,12 +32,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://ry-fsnd-capstone.herokuapp.com/actors/1",
-							"protocol": "https",
+							"raw": "{{host}}/actors/1",
 							"host": [
-								"ry-fsnd-capstone",
-								"herokuapp",
-								"com"
+								"{{host}}"
 							],
 							"path": [
 								"actors",
@@ -65,12 +59,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://ry-fsnd-capstone.herokuapp.com/actors",
-							"protocol": "https",
+							"raw": "{{host}}/actors",
 							"host": [
-								"ry-fsnd-capstone",
-								"herokuapp",
-								"com"
+								"{{host}}"
 							],
 							"path": [
 								"actors"
@@ -94,11 +85,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/37",
+							"raw": "{{host}}/actors/37",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"37"
@@ -113,11 +103,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/37",
+							"raw": "{{host}}/actors/37",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"37"
@@ -132,11 +121,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -150,11 +138,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/1",
+							"raw": "{{host}}/movies/1",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"1"
@@ -170,7 +157,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"Edge of Tomorrow\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Tom Cruise\", \"Emily Blunt\"]\n}",
+							"raw": "{\n\t\"title\": \"Edge of Tomorrow\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Brad Pitt\", \"Natalie Portman\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,11 +165,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -205,11 +191,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/17",
+							"raw": "{{host}}/movies/17",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"17"
@@ -224,11 +209,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/17",
+							"raw": "{{host}}/movies/17",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"17"
@@ -243,7 +227,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "{{authorization}}",
+						"value": "{{userToken}}",
 						"type": "string"
 					}
 				]
@@ -278,11 +262,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors",
+							"raw": "{{host}}/actors",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors"
 							]
@@ -296,11 +279,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/2",
+							"raw": "{{host}}/actors/2",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"2"
@@ -324,11 +306,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/actors",
+							"raw": "{{host}}/actors",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors"
 							]
@@ -351,11 +332,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/38",
+							"raw": "{{host}}/actors/38",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"38"
@@ -370,11 +350,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/38",
+							"raw": "{{host}}/actors/38",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"38"
@@ -389,11 +368,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -407,11 +385,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/1",
+							"raw": "{{host}}/movies/1",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"1"
@@ -427,7 +404,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"Edge of Tomorrow\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Tom Cruise\", \"Emily Blunt\"]\n}",
+							"raw": "{\n\t\"title\": \"Edge of Tomorrow\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Denzel Washington\", \"Emma Stone\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -435,11 +412,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -462,11 +438,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/18",
+							"raw": "{{host}}/movies/18",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"18"
@@ -481,11 +456,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/18",
+							"raw": "{{host}}/movies/18",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"18"
@@ -535,11 +509,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors",
+							"raw": "{{host}}/actors",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors"
 							]
@@ -553,11 +526,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/1",
+							"raw": "{{host}}/actors/1",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
 								"1"
@@ -573,7 +545,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Keira Knightley\",\n\t\"date_of_birth\": \"March 26, 1985\"\n}",
+							"raw": "{\n\t\"name\": \"{{$randomFullName}}\",\n\t\"date_of_birth\": \"March 26, 1985\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -581,11 +553,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/actors",
+							"raw": "{{host}}/actors",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors"
 							]
@@ -600,7 +571,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"full_name\": \"Keira Christina Knightley\"\n}",
+							"raw": "{\n\t\"full_name\": \"{{$randomFullName}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -608,14 +579,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/39",
+							"raw": "{{host}}/actors/20",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
-								"39"
+								"20"
 							]
 						}
 					},
@@ -627,14 +597,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/actors/39",
+							"raw": "{{host}}/actors/20",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"actors",
-								"39"
+								"20"
 							]
 						}
 					},
@@ -646,11 +615,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -664,14 +632,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/1",
+							"raw": "{{host}}/movies/3",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -684,7 +651,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"Edge of Tomorrow\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Tom Cruise\", \"Emily Blunt\"]\n}",
+							"raw": "{\n\t\"title\": \"{{$randomProductName}}\",\n\t\"duration\": 113,\n\t\"release_year\": 2014,\n\t\"imdb_rating\": 7.9,\n\t\"cast\": [\"Johnny Depp\", \"Charlize Theron\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -692,11 +659,10 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies",
+							"raw": "{{host}}/movies",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies"
 							]
@@ -719,14 +685,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/19",
+							"raw": "{{host}}/movies/3",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
-								"19"
+								"3"
 							]
 						}
 					},
@@ -738,11 +703,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}/movies/19",
+							"raw": "{{host}}/movies/19",
 							"host": [
 								"{{host}}"
 							],
-							"port": "{{port}}",
 							"path": [
 								"movies",
 								"19"
@@ -812,11 +776,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}/health",
+					"raw": "{{host}}/health",
 					"host": [
 						"{{host}}"
 					],
-					"port": "{{port}}",
 					"path": [
 						"health"
 					]
@@ -831,48 +794,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"function setAuth0JWT() {",
-					"  // fill local vars from Postman environment",
-					"  var domain = pm.environment.get(\"domain\");",
-					"  var client_id = pm.environment.get(\"client_id\");",
-					"  var client_secret = pm.environment.get(\"client_secret\");",
-					"  var audience = pm.environment.get(\"audience\");",
-					"",
-					"  // load request object",
-					"  var req = {",
-					"    url: \"https://\" + domain + \"/oauth/token\",",
-					"    method: \"POST\",",
-					"    header: {",
-					"      \"accept\": \"application/json\",",
-					"      \"content-type\": \"application/json\"",
-					"    },",
-					"    body: {",
-					"      mode: 'raw',",
-					"      raw: JSON.stringify(",
-					"        {",
-					"          client_id: client_id,",
-					"          client_secret: client_secret,",
-					"          audience: audience,",
-					"          grant_type: \"client_credentials\",",
-					"        username: \"saitamacoder@gmail.com\",",
-					"        password: \"MinhDua@198\"",
-					"        }",
-					"      )",
-					"    }",
-					"  };",
-					"  ",
-					"  // execute request for JWT, store token, set header",
-					"  pm.sendRequest(req, function (err, res) {",
-					"    pm.environment.set(\"authorization\",res.json().access_token);",
-					"    pm.request.headers.add(",
-					"      {",
-					"        key: \"authorization\",",
-					"        value: pm.environment.get(\"authorization\")",
-					"      }",
-					"    );",
-					"  });",
-					"}",
-					"setAuth0JWT();"
+					""
 				]
 			}
 		},
@@ -889,25 +811,26 @@
 	"variable": [
 		{
 			"key": "host",
-			"value": "http://localhost",
+			"value": "http://localhost:5000",
 			"type": "default"
 		},
 		{
 			"key": "port",
 			"value": "5000",
-			"type": "default"
+			"type": "default",
+			"disabled": true
 		},
 		{
 			"key": "adminToken",
-			"value": ""
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndIeWJ1T2NqYnZGMDdyMmI3NjBaZiJ9.eyJpc3MiOiJodHRwczovL2Rldi03dXFqeHJnZ2pxanU2MXczLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NDYyN2I5Zjk5ZjVlMjU5ZWU2MmMxMzkiLCJhdWQiOiJhZ2VuY3kiLCJpYXQiOjE2ODQ0MzgyMDksImV4cCI6MTY4NTMwMjIwOSwiYXpwIjoidm9kUnB0WGZBTmdxRlNJcUlQc0JLWVJwVzZ0dHBSNXQiLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvciIsImRlbGV0ZTptb3ZpZSIsImdldDphY3RvcnMiLCJnZXQ6YWN0b3JzLWluZm8iLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1pbmZvIiwicGF0Y2g6YWN0b3IiLCJwYXRjaDptb3ZpZSIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.SIf7zX5cIUdSoretswOuN9vsQ4WlsbR7zW4r8OC3Y85SaTb5UGlZ7MKpkH7M5_-2_iJys0JrwdWS1qcfnMbL-S5P29ACchKXgIOQag2pGUMtmiQdv0dwzvUp-knogQ-A30n_kebHDD7frfBhERSA0h5jAGHTF9-YkB6NC6TwFRH_wCMbbUfpC_hkgTKIIKCEgzHB-Q1gFq7Ori7bfLzv2EV5JqKIN2M7WOjquoUUdQw9aSSu4D45NO6n9VWbJqSa-awsZ0k-JV80JjMRM4R_0CxNqSG00sKq4vpReEIEcmfxqFX6x2vJusYsC1GtQNqt6PtY-iImO-ez2MtU8q0jSw"
 		},
 		{
 			"key": "managerToken",
-			"value": ""
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndIeWJ1T2NqYnZGMDdyMmI3NjBaZiJ9.eyJpc3MiOiJodHRwczovL2Rldi03dXFqeHJnZ2pxanU2MXczLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NDYyN2JiYjZjZjQwNDNkZTFjM2EyZTMiLCJhdWQiOiJhZ2VuY3kiLCJpYXQiOjE2ODQ0MzgyMDksImV4cCI6MTY4NTMwMjIwOSwiYXpwIjoidm9kUnB0WGZBTmdxRlNJcUlQc0JLWVJwVzZ0dHBSNXQiLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6YWN0b3JzLWluZm8iLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1pbmZvIiwicGF0Y2g6YWN0b3IiLCJwYXRjaDptb3ZpZSIsInBvc3Q6YWN0b3IiLCJwb3N0Om1vdmllIl19.m0qE1p7XQXqAOQUomW8zhP7S_Pp_fwGCqQTX2L6goaH9nzJevlVdvHP2zoPZsD-s5GGW-uORB3LONYIxM77BQ0KaiqTy8iyGq12CcDZD8JNvM9TJrdoUye0bIs1oPs4zaQWgwFQqWQpomM_Qoi8CO9CWmHVqjAdlIAC0dvdEJ1I1cIgVFAUu7VQnYXraZmgN1QWoaHmI16mIKmauYawvqyL5i2Oj3T9RkBSiAzhbBdQhq6hj-Ec0oaiW5fJanECNZ4BPHNHI6w_hJS8dk7ICOQHNhFOtUjtLNY98T5pvbMV_F1fFR0dMph72m8P7SjJHHHDv4NL3YKMrmsTQlW_-aA"
 		},
 		{
 			"key": "userToken",
-			"value": ""
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IndIeWJ1T2NqYnZGMDdyMmI3NjBaZiJ9.eyJpc3MiOiJodHRwczovL2Rldi03dXFqeHJnZ2pxanU2MXczLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NDYyN2JkNjc4YjZjZTNiZjQwZGI3NjYiLCJhdWQiOiJhZ2VuY3kiLCJpYXQiOjE2ODQ0MzgyMDksImV4cCI6MTY4NTMwMjIwOSwiYXpwIjoidm9kUnB0WGZBTmdxRlNJcUlQc0JLWVJwVzZ0dHBSNXQiLCJndHkiOiJwYXNzd29yZCIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6YWN0b3JzLWluZm8iLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1pbmZvIl19.cSweE0n3Y--rXjdREhRIjOnkIB-iX26DZcQ2KJ_ktGAJng_IVjMcz2ABRkkDJfUC6ORV77TUPQsJLMzLa7odwfYEJ1w4FIKvnkS485sjpdZPBC1naJEJrc8TrzgeALGGl453kCESIJfbE4KyDgKCrQjkEdNjfFweEAABHKL6W3XzSh6-ptTh_GWjfCdaEdBqLiU_SvHUVuA0tRfp7epQbAzTN5LkJapFrOAw5VKrjrP2VKhlxPpIYosjhd_Lhc9LkVeoHN-Eo9QOCR1DpFo7HY3v41GTOF89PiaoACIL_Dh7e1hiGPXXML9fRvH-AwIDJhfwIR4EaWQW2msGHAoEqQ"
 		}
 	]
 }

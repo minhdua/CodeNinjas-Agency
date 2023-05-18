@@ -9,50 +9,11 @@ from jose import jwt
 from urllib.request import urlopen
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
-SECRET_KEY = os.environ.get('SECRET_KEY')
 
-AUTH0_DOMAIN = 'dev-7uqjxrggjqju61w3.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'agency'
-
-ROLES = {
-    'User': ['get:actors', 'get:actors-info', 'get:movies', 'get:movies-info'],
-    'Manager': ['get:actors', 'get:actors-info', 'get:movies', 'get:movies-info',
-                'patch:actor', 'patch:movie', 'post:actor', 'post:movie'],
-    'Admin': ['get:actors', 'get:actors-info', 'get:movies', 'get:movies-info',
-              'patch:actor', 'patch:movie', 'post:actor', 'post:movie',
-              'delete:actor', 'delete:movie']
-}
-
-
-def generate_bearer_token(role):
-    # Set the expiration time for the token
-    expiration_time = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
-
-    # Create the token payload
-    payload = {
-        'exp': expiration_time,
-        'permissions': ROLES.get(role, [])
-        # Add any additional claims or data as needed
-    }
-
-    # Generate the JWT token
-    token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
-    return token
-
-
-def generate_user_token():
-    return generate_bearer_token('User')
-
-
-def generate_manager_token():
-    return generate_bearer_token('Manager')
-
-
-def generate_admin_token():
-    return generate_bearer_token('Admin')
-
-# AuthError Exception
+auth0_domain = os.environ.get('AUTH0_DOMAIN')
+algorithms = os.environ.get('ALGORITHMS')
+algorithms_list = algorithms.split(';')
+api_audience = os.environ.get('API_AUDIENCE')
 
 
 class AuthError(Exception):
@@ -108,7 +69,7 @@ def check_permissions(permission, payload):
 
 
 def verify_decode_jwt(token):
-    url_string = "https://{}/.well-known/jwks.json".format(AUTH0_DOMAIN)
+    url_string = "https://{}/.well-known/jwks.json".format(auth0_domain)
     json_url = urlopen(url_string)
     jwks = json.loads(json_url.read())
     unverified_header = jwt.get_unverified_header(token)
@@ -135,9 +96,9 @@ def verify_decode_jwt(token):
             payload = jwt.decode(
                 token,
                 rsa_key,
-                algorithms=ALGORITHMS,
-                audience=API_AUDIENCE,
-                issuer='https://{}/'.format(AUTH0_DOMAIN)
+                algorithms=algorithms_list,
+                audience=api_audience,
+                issuer='https://{}/'.format(auth0_domain)
             )
 
             return payload

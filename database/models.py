@@ -49,16 +49,15 @@ class ActorInMovie(db.Model):
         self.actor_id = actor_id
 
     def save(self):
-        with db.session.begin():
-            db.session.add(self)
+        db.session.add(self)
+        db.session.commit()
 
     def delete(self):
-        with db.session.begin():
-            db.session.delete(self)
+        db.session.delete(self)
+        db.session.commit()
 
     def update(self):
-        with db.session.begin():
-            pass
+        db.session.commit()
 
     @property
     def short_info(self):
@@ -94,8 +93,8 @@ class Movie(db.Model):
     release_year = Column(Integer, nullable=False)
     duration = Column(Integer, nullable=False)
     imdb_rating = Column(Float, nullable=False)
-    cast = db.relationship(
-        'Actor', secondary=ActorInMovie.__table__, backref='movies')
+    roles = db.relationship(
+        'ActorInMovie', backref='movies', lazy=True, cascade="all, delete")
 
     def __init__(self, title: str, release_year: int, duration: int, imdb_rating: float):
         self.title = title
@@ -104,16 +103,15 @@ class Movie(db.Model):
         self.imdb_rating = imdb_rating
 
     def save(self):
-        with db.session.begin():
-            db.session.add(self)
+        db.session.add(self)
+        db.session.commit()
 
     def delete(self):
-        with db.session.begin():
-            db.session.delete(self)
+        db.session.delete(self)
+        db.session.commit()
 
     def update(self):
-        with db.session.begin():
-            pass
+        db.session.commit()
 
     @property
     def short_info(self):
@@ -139,7 +137,7 @@ class Movie(db.Model):
             "duration": self.duration,
             "release_year": self.release_year,
             "imdb_rating": self.imdb_rating,
-            "cast": [actor.name for actor in self.cast]
+            "cast": [role.actors.name for role in self.roles]
         }
 
     def __repr__(self):
@@ -154,8 +152,8 @@ class Actor(db.Model):
     name = Column(String(256), nullable=False)
     full_name = Column(String(512), nullable=False, default='')
     date_of_birth = Column(Date, nullable=False)
-    movies = db.relationship(
-        'Movie', secondary=ActorInMovie.__table__, backref='cast')
+    roles = db.relationship(
+        'ActorInMovie', backref='actors', lazy=True, cascade="all, delete")
 
     def __init__(self, name: str, full_name: str, date_of_birth: date):
         self.name = name
@@ -163,16 +161,15 @@ class Actor(db.Model):
         self.date_of_birth = date_of_birth
 
     def save(self):
-        with db.session.begin():
-            db.session.add(self)
+        db.session.add(self)
+        db.session.commit()
 
     def delete(self):
-        with db.session.begin():
-            db.session.delete(self)
+        db.session.delete(self)
+        db.session.commit()
 
     def update(self):
-        with db.session.begin():
-            pass
+        db.session.commit()
 
     @property
     def short_info(self):
@@ -195,7 +192,7 @@ class Actor(db.Model):
             "name": self.name,
             "full_name": self.full_name,
             "date_of_birth": self.date_of_birth.strftime("%B %d, %Y"),
-            "movies": [movie.title for movie in self.movies]
+            "movies": [role.movies.title for role in self.roles]
         }
 
     def __repr__(self):
